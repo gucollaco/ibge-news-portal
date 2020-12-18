@@ -1,66 +1,63 @@
 import React from 'react'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { Navbar, Container, Row, Col, Card } from 'react-bootstrap'
 
-export default function Home () {
+const Home = ({ news }) => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>Portal de Notícias - IBGE</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href='https://nextjs.org'>Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href='https://nextjs.org/docs' className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href='https://nextjs.org/learn' className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href='https://github.com/vercel/next.js/tree/master/examples'
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href='https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Powered by{' '}
-          <img src='/vercel.svg' alt='Vercel Logo' className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+      <Navbar expand='lg' variant='dark' bg='dark'>
+        <Container>
+          <Navbar.Brand href='#'>Portal de Notícias - IBGE</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <Container style={{ overflow: 'hidden' }}>
+        {news.map((value, index) => {
+          return (
+            <Row key={index} style={{ marginTop: 10, marginBottom: 10 }}>
+              <Col>
+                <Card>
+                  <Row noGutters>
+                    <Col lg={5} className='d-none d-lg-block'>
+                      <img
+                        src={`https://agenciadenoticias.ibge.gov.br/${
+                          JSON.parse(value.imagens).image_intro
+                        }`}
+                        alt={JSON.parse(value.imagens).image_intro_alt}
+                        style={{ width: '428px' }}
+                      />
+                    </Col>
+                    <Col xs={12} sm={12} md={12} lg={7}>
+                      <Card.Body>
+                        <Card.Title>{value.titulo}</Card.Title>
+                        <Card.Text>{value.introducao}</Card.Text>
+                        <Card.Link target='_blank' href={value.link}>
+                          Visitar notícia completa no site do IBGE
+                        </Card.Link>
+                      </Card.Body>
+                    </Col>
+                  </Row>
+                </Card>
+              </Col>
+            </Row>
+          )
+        })}
+        {/* </Row> */}
+      </Container>
+    </>
   )
 }
+
+Home.getInitialProps = async () => {
+  const res = await fetch(
+    'http://servicodados.ibge.gov.br/api/v3/noticias/?qtd=50'
+  )
+  const data = await res.json()
+
+  return { news: data.items }
+}
+
+export default Home
