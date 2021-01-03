@@ -29,7 +29,9 @@
     "next": "10.0.3",
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-eulexia": "^0.0.7",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
