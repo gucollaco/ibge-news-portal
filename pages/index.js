@@ -1,6 +1,14 @@
 import React from 'react'
 import Head from 'next/head'
 import { Navbar, Container, Row, Col, Card } from 'react-bootstrap'
+import {
+  EulexiaFab,
+  ColorChangeAction,
+  FontFamilyAction,
+  FontSizeAction,
+  RulerAction,
+  TextToSpeechAction
+} from 'react-eulexia'
 
 const Home = ({ news }) => {
   return (
@@ -15,38 +23,36 @@ const Home = ({ news }) => {
         </Container>
       </Navbar>
       <Container style={{ overflow: 'hidden' }}>
-        {news.map((value, index) => {
-          return (
-            <Row key={index} style={{ marginTop: 10, marginBottom: 10 }}>
-              <Col>
-                <Card>
-                  <Row noGutters>
-                    <Col lg={5} className='d-none d-lg-block'>
-                      <img
-                        src={`https://agenciadenoticias.ibge.gov.br/${
-                          JSON.parse(value.imagens).image_intro
-                        }`}
-                        alt={JSON.parse(value.imagens).image_intro_alt}
-                        style={{ width: '428px' }}
-                      />
-                    </Col>
-                    <Col xs={12} sm={12} md={12} lg={7}>
-                      <Card.Body>
-                        <Card.Title>{value.titulo}</Card.Title>
-                        <Card.Text>{value.introducao}</Card.Text>
-                        <Card.Link target='_blank' href={value.link}>
-                          Visitar notícia completa no site do IBGE
-                        </Card.Link>
-                      </Card.Body>
-                    </Col>
-                  </Row>
-                </Card>
-              </Col>
-            </Row>
-          )
-        })}
-        {/* </Row> */}
+        <Row style={{ marginTop: 16, marginBottom: 16 }}>
+          {news.map((value, index) => (
+            <Col key={index} lg={4} style={{ marginBottom: 16 }}>
+              <Card>
+                <Card.Img
+                  variant='top'
+                  src={`https://agenciadenoticias.ibge.gov.br/${
+                    JSON.parse(value.imagens).image_intro
+                  }`}
+                  alt={JSON.parse(value.imagens).image_intro_alt}
+                />
+                <Card.Body>
+                  <Card.Title>{value.titulo}</Card.Title>
+                  <Card.Text>{value.introducao}</Card.Text>
+                  <Card.Link target='_blank' href={value.link}>
+                    Visitar notícia completa no site do IBGE
+                  </Card.Link>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </Container>
+      <EulexiaFab>
+        <FontSizeAction />
+        <FontFamilyAction />
+        <ColorChangeAction />
+        <RulerAction />
+        <TextToSpeechAction />
+      </EulexiaFab>
     </>
   )
 }
