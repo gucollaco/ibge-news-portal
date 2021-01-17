@@ -56,7 +56,7 @@ const Home = ({ news }) => {
         <ColorChangeAction
           backgroundLabel='Fundo'
           textLabel='Texto'
-          tooltipTitle='Mudar de cor'
+          tooltipTitle='Mudar cor'
         />
         <RulerAction
           invertedModeLabel='Modo invertido'
