@@ -47,11 +47,27 @@ const Home = ({ news }) => {
         </Row>
       </Container>
       <EulexiaFab>
-        <FontSizeAction />
-        <FontFamilyAction />
-        <ColorChangeAction />
-        <RulerAction />
-        <TextToSpeechAction />
+        <FontSizeAction
+          headerLabel='Títulos'
+          textLabel='Textos'
+          tooltipTitle='Tamanho de fonte'
+        />
+        <FontFamilyAction dropdownPlaceholder='Fonte...' tooltipTitle='Fonte' />
+        <ColorChangeAction
+          backgroundLabel='Fundo'
+          textLabel='Texto'
+          tooltipTitle='Mudar de cor'
+        />
+        <RulerAction
+          invertedModeLabel='Modo invertido'
+          sizeLabel='Tamanho'
+          tooltipTitle='Régua de leitura'
+        />
+        <TextToSpeechAction
+          readSelectedLabel='Ler texto selecionado'
+          tooltipTitle='Texto para voz'
+          unsupportedBrowserLabel='Navegador não suportado'
+        />
       </EulexiaFab>
     </>
   )
