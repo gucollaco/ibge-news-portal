@@ -4892,10 +4892,10 @@ react-dropdown@^1.9.0:
   dependencies:
     classnames "^2.2.3"
 
-react-eulexia@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/react-eulexia/-/react-eulexia-0.1.0.tgz#9753c41c81c440bc5c1d9911fd37818d8ae46d42"
-  integrity sha512-9JL5gfKBnhsFZLL8Lg+2SrTF/fmeOvy0zpH/J0tWestJC0mnxgjkt4xMm8sQjRmsXZVkED84czRCe2GWn+U34Q==
+react-eulexia@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/react-eulexia/-/react-eulexia-1.1.3.tgz#39db6e91c94653ecdb55eeb020d5c930b5b39615"
+  integrity sha512-ljcOyb2N1nG3+KNNfXxv3DtkDTe2XJ7FU5Iw912asn5YB5H3IbxWB77gXU2vpgaS8wWhPO01FoVfBPzemG6IFw==
   dependencies:
     "@babel/runtime" "^7.12.5"
     prop-types "^15.7.2"
