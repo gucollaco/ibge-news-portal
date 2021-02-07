@@ -97,7 +97,9 @@ Home.getInitialProps = async () => {
     'http://servicodados.ibge.gov.br/api/v3/noticias/?qtd=50'
   )
 
-  if (res.status !== undefined && res.status > 200) { return { news: SomeNews.conteudo, apiOff: true } }
+  if (res.status !== undefined && res.status > 200) {
+    return { news: SomeNews.conteudo, apiOff: true }
+  }
 
   const data = await res.json()
   return { news: data.items, apiOff: false }
