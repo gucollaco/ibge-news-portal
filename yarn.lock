@@ -140,10 +140,17 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@7.12.5", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.4.2", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.8.7":
+"@babel/runtime@7.12.5", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.4.2", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.8.7":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.12.5":
+  version "7.12.13"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.13.tgz#0a21452352b02542db0ffb928ac2d3ca7cb6d66d"
+  integrity sha512-8+3UMPBrjFa/6TtKi/7sehPKqfAm4g6K+YQjyyFOLUTxzOngcRZTlAVY8sc2CORJYqdHQY8gRPHmn+qo15rCBw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -4886,16 +4893,16 @@ react-dom@17.0.1:
     scheduler "^0.20.1"
 
 react-dropdown@^1.9.0:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/react-dropdown/-/react-dropdown-1.9.1.tgz#fd3c79192b6c6d02694496e2a2cac693eb452c1b"
-  integrity sha512-HRyIbGevr9iQlYWY2feOTJvVF7UtWREmgI7rozqyegxT2LH8BmQn8LJppOPSqTXQCb5sIghGK8GPS+QyNHULrw==
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/react-dropdown/-/react-dropdown-1.9.2.tgz#db6cbc90184e3f6dd7eb40f7ddabac4b09dccf15"
+  integrity sha512-g4eufErTi5P5T5bGK+VmLl//qvAHy79jm6KKx8G2Tl3mG90bpigb+Aw85P+C2JUdAnIIQdv8kP/oHN314GvAfw==
   dependencies:
     classnames "^2.2.3"
 
-react-eulexia@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/react-eulexia/-/react-eulexia-1.1.3.tgz#39db6e91c94653ecdb55eeb020d5c930b5b39615"
-  integrity sha512-ljcOyb2N1nG3+KNNfXxv3DtkDTe2XJ7FU5Iw912asn5YB5H3IbxWB77gXU2vpgaS8wWhPO01FoVfBPzemG6IFw==
+react-eulexia@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-eulexia/-/react-eulexia-1.2.0.tgz#0535ab2a570a98c66a564054bb42c8665ae17809"
+  integrity sha512-LIHREIhnvJYiJR8uwybfRPeylS2rU1l9aY58/9xxepDT+lH6c1KeV9qrLxINpFMRjW6lhFY9dfAAnInJZ3IUaQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
     prop-types "^15.7.2"
@@ -4932,9 +4939,9 @@ react-overlays@^4.1.0:
     warning "^4.0.3"
 
 react-range@^1.8.3:
-  version "1.8.6"
-  resolved "https://registry.yarnpkg.com/react-range/-/react-range-1.8.6.tgz#744e47c410ca1c2cea3cae70ee4c124dc9d4cab6"
-  integrity sha512-oEWZD//akyrfCpqXUnm4PJvochNqBvFtirlo+Mn40ItBuqLt+xvz+78V2faWl2zW5QzMQgdizxZ4HS5x5Ot0bw==
+  version "1.8.7"
+  resolved "https://registry.yarnpkg.com/react-range/-/react-range-1.8.7.tgz#a890bc614517b5579179f6a2b44e642786f8d96e"
+  integrity sha512-M8vaKB2vCU04BWq/kae/e5xu5WWm/lfFHXWkSiFWWm00+fqNvhYAeNYmiXR82WgwQAwRmew7Wcy7HC9pZj5QcA==
 
 react-refresh@0.8.3:
   version "0.8.3"
