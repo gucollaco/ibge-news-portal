@@ -9,8 +9,9 @@ import {
   RulerAction,
   TextToSpeechAction
 } from 'react-eulexia'
+import SomeNews from '../public/some-news'
 
-const Home = ({ news }) => {
+const Home = ({ news, apiOff }) => {
   return (
     <>
       <Head>
@@ -24,26 +25,44 @@ const Home = ({ news }) => {
       </Navbar>
       <Container style={{ overflow: 'hidden' }}>
         <Row style={{ marginTop: 16, marginBottom: 16 }}>
-          {news.map((value, index) => (
-            <Col key={index} lg={4} style={{ marginBottom: 16 }}>
-              <Card>
-                <Card.Img
-                  variant='top'
-                  src={`https://agenciadenoticias.ibge.gov.br/${
-                    JSON.parse(value.imagens).image_intro
-                  }`}
-                  alt={JSON.parse(value.imagens).image_intro_alt}
-                />
-                <Card.Body>
-                  <Card.Title>{value.titulo}</Card.Title>
-                  <Card.Text>{value.introducao}</Card.Text>
-                  <Card.Link target='_blank' href={value.link}>
-                    Visitar notícia completa no site do IBGE
-                  </Card.Link>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+          {!apiOff &&
+            news.map((value, index) => (
+              <Col key={index} lg={4} style={{ marginBottom: 16 }}>
+                <Card>
+                  <Card.Img
+                    variant='top'
+                    src={`https://agenciadenoticias.ibge.gov.br/${
+                      JSON.parse(value.imagens).image_intro
+                    }`}
+                    alt={JSON.parse(value.imagens).image_intro_alt}
+                  />
+                  <Card.Body>
+                    <Card.Title>{value.titulo}</Card.Title>
+                    <Card.Text>{value.introducao}</Card.Text>
+                    <Card.Link target='_blank' href={value.link}>
+                      Visitar notícia completa no site do IBGE
+                    </Card.Link>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          {apiOff &&
+            news.map((value, index) => (
+              <Col key={index} lg={4} style={{ marginBottom: 16 }}>
+                <Card>
+                  <Card.Body>
+                    <Card.Title>{value.title}</Card.Title>
+                    <Card.Text>{value.introtext}</Card.Text>
+                    <Card.Link
+                      target='_blank'
+                      href={`https://www.ibge.gov.br/noticia.html?id=${value.id}`}
+                    >
+                      Visitar notícia completa no site do IBGE
+                    </Card.Link>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
         </Row>
       </Container>
       <EulexiaFab>
@@ -61,9 +80,13 @@ Home.getInitialProps = async () => {
   const res = await fetch(
     'http://servicodados.ibge.gov.br/api/v3/noticias/?qtd=50'
   )
-  const data = await res.json()
 
-  return { news: data.items }
+  if (res.status !== undefined && res.status > 200) {
+    return { news: SomeNews.conteudo, apiOff: true }
+  }
+
+  const data = await res.json()
+  return { news: data.items, apiOff: false }
 }
 
 export default Home
